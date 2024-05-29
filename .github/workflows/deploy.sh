@@ -14,3 +14,6 @@ echo "Deploying to production..."
 sudo systemctl restart my-web-service
 
 echo "Deployment complete."
+
+chmod +x deploy.sh
+
