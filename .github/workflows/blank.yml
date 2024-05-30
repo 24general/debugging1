@@ -43,5 +43,23 @@ jobs:
       - name: Deploy to Production
         run: echo "Deploying to production..."
 
+  # Adding a deployment job
+  deployment:
+    runs-on: ubuntu-latest
+    environment: production
 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
+      - name: Set up Production Environment
+        run: echo "Setting up production environment..."
+
+      - name: Run Tests
+        run: echo "Running tests..."
+
+      - name: Build Artifacts
+        run: echo "Building artifacts..."
+
+      - name: Deploy to Production
+        run: echo "Deploying to production..."
