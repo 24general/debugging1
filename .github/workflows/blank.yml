@@ -96,10 +96,6 @@ jobs:
       - name: Build Artifacts
         run: echo "Building artifacts..."
 
-      # New steps based on provided additions
-      - name: Make Build
-        run: make build
-
       - name: Publish Artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -118,7 +114,6 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    # Added condition to trigger only on master branch
     if: github.ref == 'refs/heads/master'
 
     steps:
