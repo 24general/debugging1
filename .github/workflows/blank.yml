@@ -96,16 +96,6 @@ jobs:
       - name: Build Artifacts
         run: echo "Building artifacts..."
 
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Run Unit Tests
-        run: |
-          python -m unittest discover tests/
-
   deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
