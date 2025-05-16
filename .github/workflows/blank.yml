@@ -96,12 +96,6 @@ jobs:
       - name: Build Artifacts
         run: echo "Building artifacts..."
 
-      - name: Publish Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-output
-          path: build-output
-
   test:
     runs-on: ubuntu-latest
 
