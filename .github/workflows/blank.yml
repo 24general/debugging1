@@ -63,45 +63,18 @@
 #         run: echo "Deploying to production..."
 
 
-name: CI
+name: Deployment
+
+concurrency: production
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
-  build:
+  deployment:
     runs-on: ubuntu-latest
-
+    environment: production
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-
-      - name: Set up Production Environment
-        run: echo "Setting up production environment..."
-
-      - name: Run Tests
-        run: echo "Running tests..."
-
-      - name: Build Artifacts
-        run: echo "Building artifacts..."
-
-  deploy:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Deploy
-        run: deploy.sh
+      - name: deploy
